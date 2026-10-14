@@ -25,12 +25,25 @@ Without both the table and stub seals, the bottom and rear gaps are additional a
 
 - Source: `cad/overlay-shroud.scad`.
 - Manufacturing mesh: `exports/overlay-shroud.stl`, **rear-face-down**, already oriented for the bed.
+- Saved Bambu project: `slicer/overlay-shroud-p2s-petg-translucent.3mf`.
 - View selectors: `part="assembly"` and `part="section"`; manufacturing selector: `part="print"`.
 - Rebuild with `make export overlay-views`; validate with `make verify`.
 
 The print bounds are approximately **175.25 x 223 x 157 mm**. Rear-face-down makes the walls vertical extrusions and avoids the unsupported lower side wall that roof-down would create. There are no geometric downward-facing overhangs above the bed; the candidate is intended for single-material PETG Translucent without supports or PLA interfaces. Tall thin walls may still wobble or detach during printing. Geometry alone does not establish reliable printing.
 
-The solid-volume PETG estimate is approximately **303 g** at 1.30 g/cm3. This is not a slicer estimate and excludes adhesion material. Targets remain <400 g and <12 hours total. Slicing, saved-project verification and process inspection are the next gate.
+## Saved and reopened slice, 2026-10-14
+
+Bambu Studio 2.6.0.51 reproduced **11h03m total / 270.63 g** after reopening the saved project and re-slicing. The total includes the displayed 7m02s preparation time; model printing is displayed as 10h55m (rounded independently). There are no supports, no generated prime tower and zero filament changes. The reported total filament equals model filament; it does not independently quantify any printer startup purge outside the slicer's material accounting.
+
+The P2S 0.4 mm / Textured PEI project uses only Bambu PETG Translucent, **0.28 mm layers**, a 0.20 mm first layer, four wall loops and five top/bottom layers. The base preset label remains `0.20mm Standard`, but the layer height is modified. Sparse infill is set to 15%; the thin geometry is largely walls and solid fill. Automatic brim is configured at 5 mm, but none appears in the resulting line-type breakdown. The global prime-tower option remains enabled, but no tower is generated for this single-filament job.
+
+The first-layer preview shows a continuous rear-panel footprint with the hose arch open to its edge. Middle and final layers retain the continuous wall paths; the line-type breakdown contains no support or bridge category. No boundary, path-conflict or material-pairing warning was visible on the final re-slice. These sampled inspections do not establish adhesion, wall stability or complete physical printability.
+
+The saved project contains one unrepaired printable object, with geometry matching the current STL and bed placement checked by tests. The archive's `slice_info.config` contains only a client header, so mass/time are recorded from the GUI, not asserted as machine-readable test results. The full gate passes **95 tests**, formatting, lint and type checking without warnings.
+
+![Reopened project slice estimate](images/overlay-slice.png)
+
+Both numerical targets (<400 g / <12 hours) are met by the reported slice. Physical fit, seals, thin-wall stability and safe capture remain unvalidated; no print has been started.
 
 ## Validation and limits
 
