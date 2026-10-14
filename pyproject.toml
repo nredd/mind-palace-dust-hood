@@ -1,0 +1,31 @@
+[project]
+name = "mind-palace-dust-hood-checks"
+version = "0.1.0"
+description = "Geometry checks for an unprinted OpenSCAD dust hood prototype"
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "trimesh>=4",
+    "numpy>=2",
+    "ruff>=0.14",
+    "ty>=0.0.1",
+    "networkx>=3.7",
+    "manifold3d>=3.5.4",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ty.environment]
+python-version = "3.13"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
