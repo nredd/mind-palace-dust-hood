@@ -11,7 +11,11 @@ Unprinted prototype. CAD and slicing are not yet complete. Do not use for metal 
 - The displayed terms prohibit sharing, hosting or distributing the model or derivative works, including remixes on other digital platforms. Commercial membership advertising is not evidence of redistribution permission.
 - Do not copy, trace, import or redistribute the source model's geometry. Build original enclosure geometry and an independently dimensioned hose connector. The general distributed-pickup concept is inspiration only.
 
-## Compact redesign, 2026-10-14
+## Overlay pivot, 2026-10-14
+
+The user now wants only an original PETG Translucent shroud over the already-printed MakerWorld collector, preserving its suction system. Read-only source inspection established the mounting dimensions in `overlay-fit.md`: 170 x 130 mm collector body, side caps approximately 19.8 mm above the bottom, and rear top approximately 39.8 mm high, with rising corner transitions. The 155 x 155 mm working envelope is not a mounting-pocket size. CAD and slicing for the overlay are not yet implemented.
+
+## Superseded compact redesign, 2026-10-14
 
 The user rejected the large enclosure's 65h40m / 1.59 kg slice and authorized a smaller, monolithic original replacement for their printed MakerWorld collector. The new design uses a 155 x 155 mm clear footprint with broad side access, informed by approximately 115 mm contact height, 125 mm contact depth and 200 mm highest working clearance. See `compact-design.md`. Targets are <400 g / <12 hours including supports and purge. The saved/reopened 0.28 mm experimental slice estimates 256.32 g / 11h15m, meeting those numerical targets, but the Translucent/PLA pairing is excluded from Bambu's mutual-support guide and remains unvalidated. The full gate passes 78 tests. Detailed evidence and remaining release gates are in `compact-design.md`. The old source and manufacturing files remain intact for comparison.
 

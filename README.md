@@ -1,6 +1,8 @@
 # Mind Palace Dust Hood (prototype)
 
-**Current candidate: compact monolithic replacement.** See [compact design and preview](docs/compact-design.md). The 155 x 155 mm interior candidate has broad tool access. Its saved/reopened experimental P2S slice estimates **11h15m / 256.32 g**, including supports, purge and tower, using 0.28 mm layers.
+**Current direction: overlay shroud for the existing printed collector.** Source-derived mounting dimensions and the remaining design work are [here](docs/overlay-fit.md). The collector body is 170 x 130 mm with a non-level upper rim; 155 x 155 mm describes the intended working clearance, not its mating footprint. No overlay manufacturing files have been released yet.
+
+**Superseded compact monolithic replacement:** see [compact design and preview](docs/compact-design.md). The 155 x 155 mm interior candidate has broad tool access. Its saved/reopened experimental P2S slice estimates **11h15m / 256.32 g**, including supports, purge and tower, using 0.28 mm layers.
 
 **Not print-ready:** Bambu's PLA/PETG support guide excludes PETG Translucent. The requested pairing remains experimental, with a visible material warning. Choose/test the material process before printing. Files: `cad/compact-hood.scad`, `exports/compact-hood.stl`, `slicer/compact-hood-experimental-p2s.3mf`.
 
