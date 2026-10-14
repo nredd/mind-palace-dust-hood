@@ -1,6 +1,8 @@
 # Mind Palace Dust Hood (prototype)
 
-**Current direction: overlay shroud for the existing printed collector.** Source-derived mounting dimensions and the remaining design work are [here](docs/overlay-fit.md). The collector body is 170 x 130 mm with a non-level upper rim; 155 x 155 mm describes the intended working clearance, not its mating footprint. No overlay manufacturing files have been released yet.
+**Current candidate: PETG Translucent overlay shroud for the existing printed collector.** Design, preview and installation requirements are [here](docs/overlay-design.md). The cover surrounds the existing collector with connected front/right access, a closed roof and a 155 x 155 mm clear working footprint. It stands on the table and requires table-edge and hose-stub gasket seals, rather than mounting on the collector's non-level rim.
+
+Source: `cad/overlay-shroud.scad`. Mesh: `exports/overlay-shroud.stl`, rear-face-down. Intended for single-material printing without supports; unprinted and not physically validated. Source-derived interface dimensions are [here](docs/overlay-fit.md).
 
 **Superseded compact monolithic replacement:** see [compact design and preview](docs/compact-design.md). The 155 x 155 mm interior candidate has broad tool access. Its saved/reopened experimental P2S slice estimates **11h15m / 256.32 g**, including supports, purge and tower, using 0.28 mm layers.
 

@@ -13,7 +13,7 @@ Unprinted prototype. CAD and slicing are not yet complete. Do not use for metal 
 
 ## Overlay pivot, 2026-10-14
 
-The user now wants only an original PETG Translucent shroud over the already-printed MakerWorld collector, preserving its suction system. Read-only source inspection established the mounting dimensions in `overlay-fit.md`: 170 x 130 mm collector body, side caps approximately 19.8 mm above the bottom, and rear top approximately 39.8 mm high, with rising corner transitions. The 155 x 155 mm working envelope is not a mounting-pocket size. CAD and slicing for the overlay are not yet implemented.
+The user now wants only an original PETG Translucent shroud over the already-printed MakerWorld collector, preserving its suction system. Read-only source inspection established the mounting dimensions in `overlay-fit.md`: 170 x 130 mm collector body, side caps approximately 19.8 mm above the bottom, and rear top approximately 39.8 mm high, with rising corner transitions. The 155 x 155 mm working envelope is not a mounting-pocket size. The original overlay CAD and STL are now implemented in `cad/overlay-shroud.scad` and `exports/overlay-shroud.stl`. It stands around the collector on the table with removable table-edge and hose-stub seals, avoiding a contoured rim seat. It preserves the existing collector and hose. See `overlay-design.md` for geometry, print orientation and unvalidated physical requirements. Overlay slicing remains the next gate.
 
 ## Superseded compact redesign, 2026-10-14
 

@@ -1,8 +1,8 @@
-.PHONY: help install export views compact-views format lint type test verify clean
+.PHONY: help install export views compact-views overlay-views format lint type test verify clean
 
 OPENSCAD ?= openscad
 PARTS := tub roof floor_liner rear_liner side_liner roof_liner adapter fit_coupon joint_coupon
-MESHES := $(addprefix exports/,$(addsuffix .stl,$(PARTS))) exports/compact-hood.stl
+MESHES := $(addprefix exports/,$(addsuffix .stl,$(PARTS))) exports/compact-hood.stl exports/overlay-shroud.stl
 
 help: ## Show available commands
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "%-20s %s\n", $$1, $$2}'
@@ -11,6 +11,10 @@ install: ## Install locked validation dependencies
 	uv sync --locked
 
 export: $(MESHES) ## Render each manufacturing part separately
+
+exports/overlay-shroud.stl: cad/overlay-shroud.scad
+	@mkdir -p exports
+	$(OPENSCAD) --hardwarnings --export-format binstl -D 'part="print"' -o $@ $<
 
 exports/compact-hood.stl: cad/compact-hood.scad
 	@mkdir -p exports
@@ -31,6 +35,11 @@ compact-views: ## Render the compact replacement candidate and its section
 	$(OPENSCAD) --hardwarnings --autocenter --viewall --camera=350,-450,300,79,80,100 --imgsize=1400,1000 -D 'part="hood"' -o docs/images/compact-hood.png cad/compact-hood.scad
 	$(OPENSCAD) --hardwarnings --autocenter --viewall --camera=350,-450,300,79,80,100 --imgsize=1400,1000 -D 'part="section"' -o docs/images/compact-section.png cad/compact-hood.scad
 
+overlay-views: ## Render the overlay in its installed orientation and section
+	@mkdir -p docs/images
+	$(OPENSCAD) --hardwarnings --autocenter --viewall --camera=350,-450,300,0,-30,105 --imgsize=1400,1000 -D 'part="assembly"' -o docs/images/overlay-shroud.png cad/overlay-shroud.scad
+	$(OPENSCAD) --hardwarnings --autocenter --viewall --camera=350,-450,300,0,-30,105 --imgsize=1400,1000 -D 'part="section"' -o docs/images/overlay-section.png cad/overlay-shroud.scad
+
 format: ## Format Python checks
 	uv run ruff format .
 
@@ -47,4 +56,4 @@ test: export ## Check actual exported meshes
 verify: lint type test ## Run static and mesh checks, not print or airflow certification
 
 clean: ## Remove reproducible geometry and view exports
-	rm -f $(MESHES) docs/images/assembly.png docs/images/exploded.png docs/images/section.png docs/images/compact-hood.png docs/images/compact-section.png
+	rm -f $(MESHES) docs/images/assembly.png docs/images/exploded.png docs/images/section.png docs/images/compact-hood.png docs/images/compact-section.png docs/images/overlay-shroud.png docs/images/overlay-section.png
