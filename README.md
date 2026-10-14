@@ -1,5 +1,11 @@
 # Mind Palace Dust Hood (prototype)
 
+**Current candidate: compact monolithic replacement.** See [compact design and preview](docs/compact-design.md). The 155 x 155 mm interior candidate has broad tool access. Its saved/reopened experimental P2S slice estimates **11h15m / 256.32 g**, including supports, purge and tower, using 0.28 mm layers.
+
+**Not print-ready:** Bambu's PLA/PETG support guide excludes PETG Translucent. The requested pairing remains experimental, with a visible material warning. Choose/test the material process before printing. Files: `cad/compact-hood.scad`, `exports/compact-hood.stl`, `slicer/compact-hood-experimental-p2s.3mf`.
+
+The double-wall, eight-plate design documented below is superseded because its 1.59 kg / 65h40m slice was too costly. Its source and artifacts remain intact for comparison.
+
 UNPRINTED PROTOTYPE. Slicing is in progress; not printed, airflow tested or fit tested. See [slicing progress](docs/slicing-progress.md) and [testing procedure](docs/testing.md).
 
 - Cold, nonmetal dust only. NOT validated for metal sharpening, hot sparks or mixed metal/combustible dust.
